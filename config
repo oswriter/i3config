@@ -41,10 +41,9 @@ exec --no-startup-id /usr/lib64/polkit-gnome/pokit-gnome-authentication-agent-1
 exec --no-startup-id mate-power-manager
 exec --no-startup-id syncthing -no-browser
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id telegram
 
 # application shortcuts
-bindsym $mod+F1 exec libreoffice --writer
+bindsym $mod+F1 exec hexchat
 bindsym $mod+F2 exec libreoffice --calc
 bindsym $mod+F3 exec caja
 bindsym $mod+F4 exec firefox
@@ -54,6 +53,7 @@ bindsym $mod+F7 exec zim
 bindsym $mod+F8 exec google-chrome-stable
 bindsym $mod+F9 exec ghostwriter
 bindsym $mod+F10 exec atom
+bindsym $mod+F11 exec libreoffice --writer
 
 # volume controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -62,7 +62,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
 # lock screen
-bindsym $mod+0 exec i3lock
+bindsym $mod+0 exec mate-screensaver-command -l
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -133,7 +133,7 @@ bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace 47
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -144,8 +144,7 @@ bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+9 move container to workspace 47
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -184,5 +183,5 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-	position top
+	    position top
 }
