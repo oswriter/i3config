@@ -13,8 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:ubuntu sans 11
-# font pango:noto sans 11
+# font pango:ubuntu sans 11
+font pango:noto sans 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -39,11 +39,12 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib64/mate-settings-daemon/mate-settings-daemon
 exec --no-startup-id /usr/lib64/polkit-gnome/pokit-gnome-authentication-agent-1
 exec --no-startup-id mate-power-manager
+exec --no-startup-id mate-screensaver
 exec --no-startup-id syncthing -no-browser
 exec --no-startup-id nitrogen --restore
 
 # application shortcuts
-bindsym $mod+F1 exec hexchat
+bindsym $mod+F1 exec atom
 bindsym $mod+F2 exec libreoffice --calc
 bindsym $mod+F3 exec caja
 bindsym $mod+F4 exec firefox
@@ -52,7 +53,7 @@ bindsym $mod+F6 exec gedit
 bindsym $mod+F7 exec zim
 bindsym $mod+F8 exec google-chrome-stable
 bindsym $mod+F9 exec ghostwriter
-bindsym $mod+F10 exec atom
+bindsym $mod+F10 exec hexchat
 bindsym $mod+F11 exec libreoffice --writer
 
 # volume controls
@@ -179,9 +180,27 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Window Borders
+# Client Class              <border>    <background>    <text>      <indicator>     <child_border>
+client.focused              #D31A06     #D31A06         #FFFFFF     #77C6D5         #77C6D5
+client.focused_inactive     #5B8FB4     #5B8FB4         #090C13     #F0915B         #F0915B
+client.unfocused            #5B8FB4     #5B8FB4         #090C13     #F0915B         #F0915B
+client.urgent               #F0915B     #F0915B         #090C13     #F0915B         #F0915B
+client.placeholder          #000000     #FFFFFF         #E1D3A4     #000000         #FFFFFF
+client.background           #FFFFFF
+#for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border normal 0
+
+gaps outer 7
+gaps inner 7 
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-	    position top
-}
+# bar {
+#        status_command i3status
+#	    position top
+# }
+
+# Start polybar
+
+exec_always --no-startup-id /home/oswriter/.config/polybar/launch.sh
